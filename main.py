@@ -15,9 +15,7 @@ slash = SlashCommand(bot,sync_commands=True)
 async def test(ctx):
    await ctx.reply('hello')
 
-@bot.command()
-async def test(ctx):
-   await ctx.reply('hello')
+
 @bot.command()
 async def vore(ctx):
     await ctx.reply("*you nom your tail accidently*")
@@ -36,7 +34,6 @@ async def cat(ctx):
          await ctx.reply(file=discord.File(data, "cat.png" ))
 
 @bot.command()
-
 async def dog(ctx):
 
 
@@ -46,11 +43,12 @@ async def dog(ctx):
             return await ctx.send('error getting file')
          data = io.BytesIO(await resp.read())
          await ctx.reply(file=discord.File(data, "480.png" ))
-         
-         @slash.slash(name='doggo',description='gives a random cute dog picture')
+
+@slash.slash(name='doggo',description='gives a random cute dog picture')
+
+
 
 async def dog(ctx):
-
 
     async with aiohttp.ClientSession() as session:
         async with session.get("https://placedog.net/640/480?random") as resp:
